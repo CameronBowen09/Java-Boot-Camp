@@ -16,9 +16,9 @@ public class GetABet3 {
 
     public static void main(String[] args) {
         
-        int bank = 1000; // assume the user has $1,000
-        int bet; // the bet entered by the user
-        boolean validBet; // indicates if bet is valid
+        int bank = 1000; 
+        int bet; 
+        boolean validBet; 
         System.out.println("You can bet between 1 and " + bank);
         do {
             System.out.print("Enter your bet: ");

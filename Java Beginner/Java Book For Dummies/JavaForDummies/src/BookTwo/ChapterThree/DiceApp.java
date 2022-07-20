@@ -11,6 +11,7 @@ package BookTwo.ChapterThree;
 public class DiceApp {
     
     public static void main(String[] args) {
+        
         int roll;
         String msg = "Here are 100 random rolls of the dice:";
         System.out.println(msg);

@@ -16,8 +16,8 @@ public class GetABet2 {
 
     public static void main(String[] args) {
         
-        int bank = 1000; // assume the user has $1,000
-        int bet; // the bet entered by the user
+        int bank = 1000; 
+        int bet; 
         System.out.println("You can bet between 1 and " + bank);
         do {
             System.out.print("Enter your bet: ");
