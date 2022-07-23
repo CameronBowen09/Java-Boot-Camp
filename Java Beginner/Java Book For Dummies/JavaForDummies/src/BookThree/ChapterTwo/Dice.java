@@ -4,6 +4,8 @@
  */
 package BookThree.ChapterTwo;
 
+import static BookTwo.ChapterThree.DiceApp.randomInt;
+
 /**
  *
  * @author User
@@ -11,6 +13,21 @@ package BookThree.ChapterTwo;
 public class Dice {
 
     public void roll() {
-        // code that rolls the dice goes here
+        
+        int roll;
+        String msg = "Here are 100 random rolls of the dice:";
+        System.out.println(msg);
+        for (int i = 0; i < 100; i++) //→8
+        {
+            roll = randomInt(1, 6); //→10
+            System.out.println(roll + " "); //→11
+        }
+    }
+    
+    public static int randomInt(int low, int high) //→16
+    {
+        int result = (int) (Math.random() //→18
+                * (high - low + 1)) + low;
+        return result; //→20
     }
 }
