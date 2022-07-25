@@ -21,6 +21,12 @@ public class EmployeeTest {
 
         Director dir = new Director(12, "Susan Wheeler", "099-45-2340", 120_567.36, "Global Marketing", 1_000_000.00);
 
+        // All Employees
+        eng.printEmployee();
+        adm.printEmployee();
+        mgr.printEmployee();
+        dir.printEmployee();
+
         // Test the EmployeeStockPlan class
         EmployeeStockPlan esp = new EmployeeStockPlan();
         printEmployee(eng, esp);
@@ -40,7 +46,7 @@ public class EmployeeTest {
     }
 
     public static void printEmployee(Employee emp, EmployeeStockPlan esp) {
-        printEmployee (emp);
+        printEmployee(emp);
         System.out.println("Stock Options:   " + esp.grantStock(emp));
     }
 }

@@ -47,17 +47,12 @@ public class Employee {
         }
     }
 
-   
-    public  void printEmployee() {
+    public String toString() {
 
-        System.out.println(); // Print a blank line as a separator
-        // Print out the data in this Employee object
-        System.out.println("Employee id:         " + getEmpId());
-        System.out.println("Employee name:       " + getName());
-        System.out.println("Employee SSN:  " + getSsn());
-        System.out.println("Employee salary:     " + NumberFormat.getCurrencyInstance().format((double) getSalary()));
+        return "Employee ID:     " + getEmpId() + "\n" +
+               "Employee Name:   " + getName() + "\n" +
+               "Employee SSN:    " + getSsn() + "\n" +
+               "Employee Salary: " + NumberFormat.getCurrencyInstance().format(getSalary());
+    
     }
-    
-    
-    
 }
