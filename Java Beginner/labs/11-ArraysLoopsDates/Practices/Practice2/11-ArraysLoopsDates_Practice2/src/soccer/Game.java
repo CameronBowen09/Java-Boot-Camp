@@ -6,6 +6,8 @@
 
 package soccer;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import utility.GameUtils;
 
 /**
@@ -17,13 +19,12 @@ public class Game {
     private Team homeTeam;
     private Team awayTeam;
     private Goal[] goals;
+    private LocalDateTime theDateTime;
     
-    /* Practice 11-2. Add LocalDateTime attribute here */
-    
-    /* Practice 11-2. Modify the constructor to include the date and time of the game */
-    public Game(Team homeTeam, Team awayTeam) {
+    public Game(Team homeTeam, Team awayTeam, LocalDateTime theDateTime) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
+        this.theDateTime = theDateTime;
     }
     
     public void playGame(int maxGoals) {       
@@ -43,9 +44,9 @@ public class Game {
         int awayTeamGoals = 0;
         StringBuilder returnString = new StringBuilder();
         
-        /* Practice 11-2. Modify the next line to include the date and time of the game */
         returnString.append(this.getHomeTeam().getTeamName() + " vs. " +
-        this.getAwayTeam().getTeamName() + "\n");
+        this.getAwayTeam().getTeamName() + "\n" + 
+               "Date: " + this.getTheDateTime().format(DateTimeFormatter.ISO_LOCAL_DATE) + "\n");
          
         for (Goal currGoal: this.getGoals()) {
             
@@ -120,6 +121,34 @@ public class Game {
      */
     public void setGoals(Goal[] goals) {
         this.goals = goals;
+    }
+
+    /**
+     * @return the localDateTime
+     */
+    public LocalDateTime getLocalDateTime() {
+        return getTheDateTime();
+    }
+
+    /**
+     * @param theDateTime the localDateTime to set
+     */
+    public void setLocalDateTime(LocalDateTime theDateTime) {
+        this.setTheDateTime(theDateTime);
+    }
+
+    /**
+     * @return the theDateTime
+     */
+    public LocalDateTime getTheDateTime() {
+        return theDateTime;
+    }
+
+    /**
+     * @param theDateTime the theDateTime to set
+     */
+    public void setTheDateTime(LocalDateTime theDateTime) {
+        this.theDateTime = theDateTime;
     }
       
 }

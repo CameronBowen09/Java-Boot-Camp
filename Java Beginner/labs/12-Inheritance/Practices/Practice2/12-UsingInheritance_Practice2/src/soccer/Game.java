@@ -10,16 +10,16 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+
 /**
  *
  * @author Administrator
  */
-
 public class Game {
     
     private Team homeTeam;
     private Team awayTeam;
-    private Goal[] goals;
+    private GameEvent[] goals;
     private LocalDateTime theDateTime;
     
     public Game(Team homeTeam, Team awayTeam, LocalDateTime theDateTime) {
@@ -29,20 +29,20 @@ public class Game {
     }
     
     public void playGame() {
-        ArrayList <Goal> eventList = new ArrayList();
-        Goal currEvent;
+        ArrayList <GameEvent> eventList = new ArrayList();
+        GameEvent currEvent;
         for (int i = 1; i <=90; i++){
             
             if (Math.random() > 0.95){
-                currEvent = new Goal();
-                currEvent.setTheTeam(Math.random() > 0.5?homeTeam: awayTeam);
+                currEvent = Math.random() > 0.6?new Goal():new Possession();
+                currEvent.setTheTeam(Math.random() > 0.3?homeTeam: awayTeam);
                 currEvent.setThePlayer(currEvent.getTheTeam().
                 getPlayerArray()[(int)(Math.random() * currEvent.getTheTeam().getPlayerArray().length)]);
                 currEvent.setTheTime(i);
                 eventList.add(currEvent);
                 //System.out.println(i);
             }
-            this.goals = new Goal[eventList.size()];
+            this.goals = new GameEvent[eventList.size()];
             eventList.toArray(goals);
  
         }
@@ -58,9 +58,9 @@ public class Game {
         this.getAwayTeam().getTeamName() + "\n" + 
                "Date: " + this.getTheDateTime().format(DateTimeFormatter.ISO_LOCAL_DATE) + "\n");
          
-        for (Goal currGoal: this.getGoals()) {
+        for (GameEvent currEvent: this.getEvents()) {
             
-            if (currGoal.getTheTeam()== homeTeam) {
+            if (currEvent.getTheTeam()== homeTeam) {
                 homeTeamGoals++;
                 homeTeam.incGoalsTotal(1);
             } else {
@@ -68,11 +68,10 @@ public class Game {
                 awayTeam.incGoalsTotal(1);
             }
             
-            /* Practice 12-2. Modify the text printed */
-            returnString.append("Goal scored after "
-            + currGoal.getTheTime() + " mins by "
-            + currGoal.getThePlayer().getPlayerName() + " of "
-            + currGoal.getTheTeam().getTeamName() +
+            returnString.append(currEvent +" after "
+            + currEvent.getTheTime() + " mins by "
+            + currEvent.getThePlayer().getPlayerName() + " of "
+            + currEvent.getTheTeam().getTeamName() +
               "\n");
         }
         
@@ -123,14 +122,14 @@ public class Game {
     /**
      * @return the goals
      */
-    public Goal[] getGoals() {
+    public GameEvent[] getEvents() {
         return goals;
     }
 
     /**
      * @param goals the goals to set
      */
-    public void setGoals(Goal[] goals) {
+    public void setEvents(GameEvent[] goals) {
         this.goals = goals;
     }
 

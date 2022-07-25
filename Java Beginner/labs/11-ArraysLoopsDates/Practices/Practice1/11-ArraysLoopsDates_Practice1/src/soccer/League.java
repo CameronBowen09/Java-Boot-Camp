@@ -5,6 +5,9 @@
  */
 package soccer;
 
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+import utility.PlayerDatabase;
 
 /**
  *
@@ -19,7 +22,7 @@ public class League {
         
         League theLeague = new League();
 
-        Team[] theTeams = theLeague.createTeams();
+        Team[] theTeams = theLeague.createTeams("The Robins,The Crows,The Swallows", 5);
         Game[] theGames = theLeague.createGames(theTeams);
 
         for (Game currGame: theGames){
@@ -31,39 +34,42 @@ public class League {
 
     }
 
-    public Team[] createTeams() {
+    public Team[] createTeams(String teamNames, int teamSize) {
 
-        /* Practice 11-1. Remove the code below that creates The Greens and The Reds */
-        Player player1 = new Player("George Eliot");
-        Player player2 = new Player("Graham Greene");
-        Player player3 = new Player("Geoffrey Chaucer");
-        Player[] thePlayers = {player1, player2, player3};
-
-        Team team1 = new Team("The Greens", thePlayers);
-
-        // Create team2
-        Team team2 = new Team();
-        team2.setTeamName("The Reds");
-        team2.setPlayerArray(new Player[3]);
-        team2.getPlayerArray()[0] = new Player("Robert Service");
-        team2.getPlayerArray()[1] = new Player("Robbie Burns");
-        team2.getPlayerArray()[2] = new Player("Rafael Sabatini");
-        /* Practice 11-1. Remove the above code that creates The Greens and The Reds */
-
-        Team[] theTeams = {team1, team2};
+        PlayerDatabase playerDB = new PlayerDatabase();
         
-        
-        
+        StringTokenizer teamNameTokens = new StringTokenizer(teamNames, ",");
+        Team[] theTeams = new Team[teamNameTokens.countTokens()];
+        for (int i =0; i < theTeams.length; i++){
+             theTeams[i] = new Team(teamNameTokens.nextToken(), playerDB.getTeam(teamSize));
+        }
+       
+
         return theTeams;
     }
 
     public Game[] createGames(Team[] theTeams) {
+        /*
         Game theGame = new Game(theTeams[0], theTeams[1]);
         Game theGame2 = new Game(theTeams[1], theTeams[0]);
         Game theGame3 = new Game(theTeams[0], theTeams[1]);
         Game theGame4 = new Game(theTeams[1], theTeams[0]);
         Game[] theGames = {theGame, theGame2, theGame3, theGame4};
-        return theGames;
+                */
+        ArrayList<Game> theGames = new ArrayList();
+        
+        for (Team homeTeam: theTeams){
+            for (Team awayTeam: theTeams){
+               if (homeTeam != awayTeam) {
+                   theGames.add(new Game(homeTeam, awayTeam));
+               } 
+            
+            }
+        }
+        
+        
+        
+        return (Game[]) theGames.toArray(new Game[1]);
     }
     
     public void showBestTeam(Team[] theTeams) {
