@@ -1,45 +1,60 @@
 package com.example.domain;
 
+import java.text.NumberFormat;
+
 public class Employee {
 
-    public int empId;
-    public String name;
-    public String ssn;
-    public double salary;
+    private int empId;
+    private String name;
+    private String ssn;
+    private double salary;
 
-    public Employee() {
+    public Employee(int empId, String name, String ssn, double salary) {
+        this.empId = empId;
+        this.name = name;
+        this.ssn = ssn;
+        this.salary = salary;
+        
     }
 
     public int getEmpId() {
         return empId;
     }
 
-    public void setEmpId(int empId) {
-        this.empId = empId;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public double getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
-
     public String getSsn() {
         return ssn;
     }
-
-    public void setSsn(String ssn) {
-        this.ssn = ssn;
+    
+   public void setName(String name) {
+        // Make sure the name value is not null or empty
+        if (name != null && !name.equals("")) {
+            this.name = name;
+        }
     }
 
+    public void raiseSalary(double increase) {
+        // Make sure the increase is not less than 0
+        if (increase > 0) {
+            salary += increase;
+
+        }
+    }
+
+    public  void printEmployee() {
+
+        System.out.println(); // Print a blank line as a separator
+        // Print out the data in this Employee object
+        System.out.println("Employee id:         " + getEmpId());
+        System.out.println("Employee name:       " + getName());
+        System.out.println("Employee Soc Sec #:  " + getSsn());
+        System.out.println("Employee salary:     " + NumberFormat.getCurrencyInstance().format((double) getSalary()));
+    }
 }
