@@ -14,12 +14,11 @@ public class Team {
     
     private String teamName;
     private Player[] playerArray;
+    private int pointsTotal;
     
-    /* Practice 10-1. Add pointTotal variable here */
-    
-    
-    /* Practice 10-1. Add incPointsTotal() method here */
-    
+    public void incPointsTotal(int points){
+        this.pointsTotal += points;
+    }
     
     public Team(String teamName) {
         this.teamName = teamName;
@@ -58,6 +57,20 @@ public class Team {
      */
     public void setPlayerArray(Player[] playerArray) {
         this.playerArray = playerArray;
+    }
+
+    /**
+     * @return the pointsTotal
+     */
+    public int getPointsTotal() {
+        return pointsTotal;
+    }
+
+    /**
+     * @param pointsTotal the pointsTotal to set
+     */
+    public void setPointsTotal(int pointsTotal) {
+        this.pointsTotal = pointsTotal;
     }
     
 }

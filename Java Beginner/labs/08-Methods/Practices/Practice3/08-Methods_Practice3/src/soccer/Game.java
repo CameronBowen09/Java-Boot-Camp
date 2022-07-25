@@ -18,16 +18,17 @@ public class Game {
     public Team awayTeam;
     public Goal[] goals;
     
-    public void playGame() {
+    public void playGame(int maxGoals) {
         /* Practice 8-2. Add code to initialize the array currGame.goals to a random size */
-        int numberOfGoals = (int)(Math.random() * 7);
+        int numberOfGoals = (int)(Math.random() * maxGoals + 1);
         Goal[] theGoals = new Goal[numberOfGoals];
         this.goals = theGoals;
         GameUtils.addGameGoals(this);        
     }
     
-    /* Practice 8-3. Add no-parameter playGame() method here */
- 
+    public void playGame() {
+        playGame(6);
+    }
     
     public String getDescription() {
         StringBuilder returnString = new StringBuilder();

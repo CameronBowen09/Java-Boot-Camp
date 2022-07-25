@@ -15,7 +15,16 @@ public class Team {
     private String teamName;
     private Player[] playerArray;
     
-    /* Practice 9-2. Add the two constructors here */
+    public Team(String teamName) {
+        this.teamName = teamName;
+    }
+    
+    public Team(String teamName, Player[] players) {
+        this(teamName);
+        this.playerArray = players;
+    }
+    
+    public Team() {}
 
     /**
      * @return the teamName

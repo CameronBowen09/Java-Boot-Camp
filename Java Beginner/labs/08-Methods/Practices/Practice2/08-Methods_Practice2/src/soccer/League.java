@@ -5,6 +5,7 @@
  */
 package soccer;
 
+
 /**
  *
  * @author Administrator
@@ -20,13 +21,11 @@ public class League {
         Game[] theGames = createGames(theTeams);
 
         Game currGame = theGames[0];
-
+        
         currGame.playGame();
         
-        System.out.println(currGame.getDiscription());
-        
-        /* Practice 8-2. Add code to initialize the array currGame.goals to a random size */
-        
+        System.out.println(currGame.getDescription());
+
     }
 
     public static Team[] createTeams() {

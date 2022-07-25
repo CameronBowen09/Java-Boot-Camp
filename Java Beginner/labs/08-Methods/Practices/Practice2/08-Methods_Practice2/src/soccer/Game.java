@@ -18,20 +18,22 @@ public class Game {
     public Team awayTeam;
     public Goal[] goals;
     
-    /* Practice 8-2. Add playGame() method here */
-    public void playGame(){
-        int numberOfGoals = (int)(Math.random()*7);
-        Goal [] theGoals = new Goal[numberOfGoals];
+    public void playGame() {
+        /* Practice 8-2, Step 1e. Add code to initialize the array currGame.goals to a random size */
+        int numberOfGoals = (int)(Math.random() * 7);
+        Goal[] theGoals = new Goal[numberOfGoals];
         this.goals = theGoals;
-        GameUtils.addGameGoals(this);
+        GameUtils.addGameGoals(this);        
     }
     
-    /* Practice 8-2. Add getDescription() method here */
-    public String getDiscription(){
+    public String getDescription() {
         StringBuilder returnString = new StringBuilder();
-        for(Goal currGoal: this.goals){
-            returnString.append("Goals after " + currGoal.theTime + " mins by " + currGoal.thePlayer.playerName + " by " 
-                    + currGoal.theTeam.teamName + "!\n");
+        for (Goal currGoal: this.goals) {
+            returnString.append("Goal scored after "
+            + currGoal.theTime + " mins by "
+            + currGoal.thePlayer.playerName + " of "
+            + currGoal.theTeam.teamName +
+              "\n");
         }
         return returnString.toString();
     }

@@ -23,7 +23,7 @@ public class Game {
         this.awayTeam = awayTeam;
     }
     
-    public void playGame(int maxGoals) {
+    public void playGame(int maxGoals) {       
         int numberOfGoals = (int)(Math.random() * maxGoals + 1);
         Goal[] theGoals = new Goal[numberOfGoals];
         this.setGoals(theGoals);
@@ -35,16 +35,21 @@ public class Game {
     }
     
     public String getDescription() {
-        
-        /* Practice 10-1. Declare two int variables here */
-        
+                       
+        int homeTeamGoals = 0;
+        int awayTeamGoals = 0;
         StringBuilder returnString = new StringBuilder();
         
-        /* Practice 10-1. Add code to show teams that are playing */
-        
+        returnString.append(homeTeam.getTeamName() + " vs. " +
+        awayTeam.getTeamName() + "\n");
+         
         for (Goal currGoal: this.getGoals()) {
             
-            /* Practice 10-1. Add if block here */
+            if (currGoal.getTheTeam()== homeTeam) {
+                homeTeamGoals++;
+            } else {
+                awayTeamGoals++;
+            }
             
             returnString.append("Goal scored after "
             + currGoal.getTheTime() + " mins by "
@@ -53,9 +58,18 @@ public class Game {
               "\n");
         }
         
-        /* Practice 10-1. Add if block here */
-        
-        /* Practice 10-1. Add returnString.append() that shows score */
+        if (homeTeamGoals == awayTeamGoals) {
+            returnString.append("It's a draw!");
+            homeTeam.incPointsTotal(1);
+            awayTeam.incPointsTotal(1);
+        } else if (homeTeamGoals > awayTeamGoals) {
+            returnString.append(homeTeam.getTeamName() + " win");
+            homeTeam.incPointsTotal(2);
+        } else {
+            returnString.append(awayTeam.getTeamName() + " win");
+            awayTeam.incPointsTotal(2);
+        }
+        returnString.append(" (" + homeTeamGoals + " - " + awayTeamGoals + ") \n");
         
         return returnString.toString();
     }
