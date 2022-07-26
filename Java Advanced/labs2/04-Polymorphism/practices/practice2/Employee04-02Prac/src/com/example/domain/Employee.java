@@ -1,13 +1,13 @@
 package com.example.domain;
 
+import java.text.NumberFormat;
+
 public class Employee {
 
     private int empId;
     private String name;
     private String ssn;
     private double salary;
-    
-    
 
     public Employee(int empId, String name, String ssn, double salary) {
         this.empId = empId;
@@ -46,10 +46,11 @@ public class Employee {
 
         }
     }
-        public void addBonusToSalary(double bonus)
-        {
-         salary=salary+bonus;   
-        }
+
+    public String toString() {
+        return "Employee ID:     " + getEmpId() + "\n" +
+               "Employee Name:   " + getName() + "\n" +
+               "Employee SSN:    " + getSsn() + "\n" +
+               "Employee Salary: " + NumberFormat.getCurrencyInstance().format(getSalary());
     }
-
-
+}
