@@ -29,7 +29,7 @@ public class CustomerReport {
                     + customer.getFirstName());
 
             // For each account for this customer...
-            for (int acctIndex = 0; acctIndex < customer.getNumOfAccounts(); acctIndex++) {
+            for (int acctIndex = 0; acctIndex< customer.getNumOfAccounts(); acctIndex++) {
                 Account account = customer.getAccount(acctIndex);
 
                 // Print the current balance of the account

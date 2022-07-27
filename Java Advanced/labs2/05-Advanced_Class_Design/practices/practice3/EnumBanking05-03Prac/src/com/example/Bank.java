@@ -10,9 +10,9 @@ public class Bank {
         numberOfCustomers = 0;
     }
 
-    public void addCustomer(String f, String l) {
+    public void addCustomer(String f, String l,Branch b) {
         int i = numberOfCustomers++;
-        customers[i] = new Customer(f, l);
+        customers[i] = new Customer(f, l,b);
     }
 
     public int getNumOfCustomers() {
