@@ -3,16 +3,14 @@ package com.example;
 public class Main {
 
     public static void main(String[] args) {
-        Bank bank = new Bank();
+        BankOperations bank = new Bank();
         initializeCustomers(bank);
 
         // run the customer report
-        CustomerReport report = new CustomerReport();
-        report.setBank(bank);
-        report.generateReport();
+        bank.generateReport();
     }
 
-    private static void initializeCustomers(Bank bank) {
+    private static void initializeCustomers(BankOperations bank) {
         Customer customer;
 // Create several customers and their accounts
         bank.addCustomer("Will", "Smith",Branch.LA);
@@ -21,9 +19,9 @@ public class Main {
 
         bank.addCustomer("Bradley", "Cooper", Branch.Boston);
         customer = bank.getCustomer(1);
-        SavingsAccount sack = new SavingsAccount(500.00);
-        customer.addAccount(sack);
-        sack.deposit(500);
+        AccountOperations acct1 = new SavingsAccount(500.00);
+        customer.addAccount(acct1);
+        acct1.deposit(500);
 
         bank.addCustomer("Jane", "Simms", Branch.Mumbai);
         customer = bank.getCustomer(2);
@@ -39,13 +37,13 @@ public class Main {
 
         bank.addCustomer("Maria", "Soley",Branch.Bangalore);
         customer = bank.getCustomer(5);
-        CheckingAccount chkAcct = new CheckingAccount(100.00);
+        AccountOperations acct5 = new CheckingAccount(100.00);
 
-        customer.addAccount(chkAcct);
+        customer.addAccount(acct5);
 
-        if (chkAcct.withdraw(900.00)) {
-            customer.addAccount(chkAcct);
-            System.out.print(" withdraw is successful" + chkAcct.getBalance());
+        if (acct5.withdraw(900.00)) {
+            customer.addAccount(acct5);
+            System.out.print(" withdraw is successful" + acct5.getBalance());
         }
 
     }
