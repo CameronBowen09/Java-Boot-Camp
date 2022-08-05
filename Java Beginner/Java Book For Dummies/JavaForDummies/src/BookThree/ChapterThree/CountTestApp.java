@@ -13,7 +13,7 @@ package BookThree.ChapterThree;
 
 //this app is being incremented by 1 each timne until it reaches 10.
 
-public class countTestApp {         //This line is the start of the CountTestApp class, which tests the CountTest class.
+public class CountTestApp {         //This line is the start of the CountTestApp class, which tests the CountTest class.
 
 
     public static void main(String[] args) {           //main method
