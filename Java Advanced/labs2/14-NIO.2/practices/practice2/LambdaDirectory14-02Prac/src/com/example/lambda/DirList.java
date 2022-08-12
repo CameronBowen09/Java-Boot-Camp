@@ -12,16 +12,14 @@ import java.util.stream.Stream;
  */
 public class DirList {
   public static void main(String[] args) {
-
-/* remove comments
-    try{ // Add Try with resources here
+                
+    try(Stream<Path> files = Files.list(Paths.get("."))){
 
         System.out.println("\n=== Dir list ===");
-        // Print directory list here
-    
+        files.forEach(line -> System.out.println(line));            
+
     }catch (IOException e){
         System.out.println("Error: " + e.getMessage());
     }
-*/
   } 
 }

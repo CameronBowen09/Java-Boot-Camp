@@ -16,22 +16,23 @@ public class P03NioReadAll {
         
         List<String> fileArr;
         Path file =  Paths.get("hamlet.txt");
-/* Remove these comments
+
         try{
-            // Read file into array here
+            fileArr = Files.readAllLines(file);
             
             System.out.println("\n=== Rosencrantz ===");
-            // Filter for Ros. here
-
+            fileArr.stream()
+                .filter(line -> line.contains("Ros."))
+                .forEach(line -> System.out.println(line));
             
             System.out.println("\n=== Guildenstern ===");
-            // Filter for Guil. here
-
+            fileArr.stream()
+                .filter(line -> line.contains("Guil."))
+                .forEach(line -> System.out.println(line));
             
 
         }catch (IOException e){
           System.out.println("Error: " + e.getMessage());
         }
-*/
     } 
 }

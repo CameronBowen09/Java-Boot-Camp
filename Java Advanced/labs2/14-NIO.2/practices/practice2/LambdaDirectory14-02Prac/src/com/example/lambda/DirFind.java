@@ -1,6 +1,5 @@
 package com.example.lambda;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -15,15 +14,15 @@ public class DirFind {
     
     public static void main(String[] args) {
         
-/* Remove comments
-        try{ // Add try with resources
+
+        try(Stream<Path> files = 
+              Files.find(Paths.get("."), 9, (p,a) -> a.isDirectory())){
             
             System.out.println("\n=== Find all dirs ===");
-            // Print out directory list here
+            files.forEach(line -> System.out.println(line));
                 
         }catch (IOException e){
             System.out.println("Error: " + e.getMessage());
         }
-*/
     } 
 }

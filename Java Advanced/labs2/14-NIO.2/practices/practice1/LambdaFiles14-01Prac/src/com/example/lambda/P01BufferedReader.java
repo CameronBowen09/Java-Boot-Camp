@@ -17,9 +17,9 @@ public class P01BufferedReader {
                 new BufferedReader(new FileReader("hamlet.txt"));
             
             System.out.println("=== Entire File ===");
-            
             bReader.lines()
-                   .forEach(lines -> System.out.println(lines));
+                .forEach(line -> 
+                    System.out.println(line));
                         
         }catch (IOException e){
             System.out.println("Error: " + e.getMessage());
