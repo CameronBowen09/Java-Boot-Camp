@@ -18,6 +18,15 @@ public class GroupTest {
         
         // Print out transactions grouped by Buyer
         System.out.println("=== Transactions Grouped by Buyer ===");
+        tMap = tList.stream()
+            .collect(Collectors.groupingBy(SalesTxn::getBuyerName));
+        
+        tMap.forEach((k,v) -> {
+            System.out.println("\nBuyer: " + k);
+            v.forEach(SalesTxn::printSummary);
+        });
+        
+        
         
     }
 }
