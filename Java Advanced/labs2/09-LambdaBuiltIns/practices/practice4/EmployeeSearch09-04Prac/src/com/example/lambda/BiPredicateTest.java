@@ -16,11 +16,12 @@ public class BiPredicateTest {
     Employee first = eList.get(0);
     String searchState = "KS";
     
-    BiPredicate<Employee, String> eBiPred; // Wrtie your BiPredicate here
+    BiPredicate<Employee, String> eBiPred = 
+      (e, s) -> e.getState().equals(s);
       
     System.out.println("=== Print matching list");
     for(Employee e:eList){
-      if (true){// Use BiPredicate for test
+      if (eBiPred.test(e, searchState)){// Use BiPredicate for test
         e.printSummary();
       }
     }
