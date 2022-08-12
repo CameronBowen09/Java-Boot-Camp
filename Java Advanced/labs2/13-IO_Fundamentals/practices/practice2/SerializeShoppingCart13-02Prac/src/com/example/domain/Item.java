@@ -3,7 +3,6 @@ package com.example.domain;
 import java.io.Serializable;
 
 public class Item implements Serializable {
-
     private static final long serialVersionUID = 42L;
     private int id;
     private String description;
