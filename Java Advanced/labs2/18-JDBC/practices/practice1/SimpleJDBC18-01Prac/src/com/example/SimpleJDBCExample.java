@@ -17,11 +17,11 @@ public class SimpleJDBCExample {
         String password = "scott";
 
         // Create a simple query
-        String query = "select * from EMPLOYEE";
+        String query = "SELECT * FROM Employee";
 
         // A try-with-resources example
         // Connection and Statement implement java.lan.AutoCloseable
-        try (Connection con = DriverManager.getConnection(url, username, password)) {
+        try (Connection con = DriverManager.getConnection(url, username, password)){
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
@@ -36,6 +36,12 @@ public class SimpleJDBCExample {
                         + "Birth Date:    " + birth_date + "\n"
                         + "Salary:        " + salary + "\n");
 
+            }
+            
+            // Add a record
+            query = "INSERT INTO Employee VALUES (400, 'Bill', 'Murray','1950-09-21', 150000)";
+            if (stmt.executeUpdate(query) != 1) {
+                System.out.println ("Failed to add a new employee record");
             }
         } catch (SQLException e) {
             System.out.println("Exception creating connection: " + e);
