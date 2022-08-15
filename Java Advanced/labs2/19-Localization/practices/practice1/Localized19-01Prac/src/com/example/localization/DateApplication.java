@@ -48,14 +48,24 @@ public class DateApplication {
       pw.println("=== Date App ===");
       
       // Full Date
+      df = DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL).withLocale(currentLocale);
+      pw.println(messages.getString("date1") + " " + today.format(df));
       
       // Long Date
+      df = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).withLocale(currentLocale);
+      pw.println(messages.getString("date2") + " " + today.format(df));
       
       // Short Date
+      df = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT).withLocale(currentLocale);
+      pw.println(messages.getString("date3") + " " + today.format(df));
       
       // Medium Date/Time
+      df = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).withLocale(currentLocale);
+      pw.println(messages.getString("date4") + " " + today.format(df));
 
       // Medium Time
+      df = DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM).withLocale(currentLocale);
+      pw.println(messages.getString("date5") + " " + today.format(df));
       
         pw.println("\n--- Choose Language Option ---");
         pw.println("1. " + messages.getString("menu1"));
@@ -67,22 +77,22 @@ public class DateApplication {
     }
     
     public void setEnglish(){
-        // Set currentLocale
-        // Set messages
+        currentLocale = Locale.US;    
+        messages = ResourceBundle.getBundle("MessagesBundle", currentLocale);        
     }
     
     public void setFrench(){
-        // Set currentLocale
-        // Set messages
+        currentLocale = Locale.FRANCE;    
+        messages = ResourceBundle.getBundle("MessagesBundle", currentLocale);
     }
     
     public void setChinese(){
-        // Set currentLocale
-        // Set messages
+        currentLocale = Locale.SIMPLIFIED_CHINESE;    
+        messages = ResourceBundle.getBundle("MessagesBundle", currentLocale);  
     }
     
     public void setRussian(){
-        // Set currentLocale
-        // Set messages
+        currentLocale = ruLocale;    
+        this.messages = ResourceBundle.getBundle("MessagesBundle", currentLocale);        
     }
 }
