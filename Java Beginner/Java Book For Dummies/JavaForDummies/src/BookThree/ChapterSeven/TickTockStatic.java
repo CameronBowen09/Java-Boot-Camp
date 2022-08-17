@@ -47,9 +47,4 @@ public class TickTockStatic {
         }
     }
 }
-/*This version of the application and the Listing 7-1 version have only three
-differences:
-→6 The tickMessage field is declared as static. This is necessary so that
-the static class can access it.
-→7 The tockMessage field is also declared as static.
-→29 The Ticker class is declared as static.*/
+

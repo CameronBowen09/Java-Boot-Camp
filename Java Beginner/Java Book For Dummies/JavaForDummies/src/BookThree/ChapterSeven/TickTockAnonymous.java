@@ -48,20 +48,4 @@ public class TickTockAnonymous {
         System.exit(0);
     }
 }
-/*→9 Anonymous classes won’t work in a static context, so the main method
-creates an instance of the TickTockAnonymous class and executes the
-go method.
-→19 In the go method, an instance of the Timer class is created.
-→20 The second parameter of the TimerClass constructor is an object that
-implements the ActionListener interface. This object is created here
-via an anonymous class. ActionListener is specified as the type for
-this class.
-→21 This left brace marks the beginning of the body of the anonymous class.
-→24 The actionPerformed method is called every 1,000 milliseconds by
-the timer. Note that this method can freely access fields defined in the
-outer class.
-→37 The right brace on this line marks the end of the body of the anonymous
-class. Then the right parenthesis marks the end of the parameter
-list for the Timer constructor. The left parenthesis that’s paired with
-this right parenthesis is on line 19. Finally, the semicolon marks the end
-of the assignment statement that started on line 19.*/
+
