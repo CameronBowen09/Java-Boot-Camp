@@ -113,6 +113,7 @@ e.changeName("Petrie", "Robert");
     
 in the code above you are changiing one persons name and so you are, 
 replacung index 1 with a new name using the changeName method for the arrayList 
+    
 Deleting Elements
 The ArrayList class provides several methods that let you remove elements from 
 the collection. To remove all the elements, use the clear method, like this:
