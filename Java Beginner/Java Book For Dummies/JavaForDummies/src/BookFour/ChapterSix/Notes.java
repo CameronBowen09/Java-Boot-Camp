@@ -18,6 +18,7 @@ Using Bulk Data Operations with Collections
     
     
 Looking At a Basic Bulk Data Operation
+    
     Suppose you have a list of spells used by a wizard, the spells are held in a class
     public class Spell {//has a public class field and reprisents spells 
     public String name; // and description, as well as a constructor that 
@@ -52,7 +53,8 @@ The same code using the streams looks like this:
 we then use the streams forEach method to iterate the stream, passing a lambda 
 expression that calls System.out.println for each item in the stream. The 
 forEach method processes the entire stream, writing each element to the console
-you can also use a filter to single out one element in the array 
+you can also use a filter to single out one element in the array
+    
 Looking Closer at the Stream Interface
 The Stream interface defines about 40 methods. In addition, three related 
 interfaces — DoubleStream, IntStream, and LongStream — extend the Stream
